@@ -1,26 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap");
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Tipografías (variables inyectadas desde layout.tsx) */
+  --font-headline: var(--font-space-grotesk), ui-sans-serif, sans-serif;
+  --font-body: var(--font-be-vietnam), ui-sans-serif, sans-serif;
+  --font-label: var(--font-space-grotesk), ui-sans-serif, sans-serif;
+
+  --color-surface-bright: #2c2c2c;
+  --color-secondary-container: #a900a9;
+  --color-primary-container: #00fdc1;
+  --color-secondary-dim: #ff51fa;
+  --color-surface-variant: #262626;
+  --color-primary-dim: #00edb4;
+  --color-on-tertiary-fixed: #3a4a00;
+  --color-primary-fixed-dim: #00edb4;
+  --color-on-error-container: #ffa8a3;
+  --color-secondary: #ff51fa;
+  --color-error: #ff716c;
+  --color-background: #0e0e0e;
+  --color-surface-container-highest: #262626;
+  --color-error-container: #9f0519;
+  --color-on-tertiary: #516700;
+  --color-surface: #0e0e0e;
+  --color-primary-fixed: #00fdc1;
+  --color-outline-variant: #494847;
+  --color-on-error: #490006;
+  --color-inverse-on-surface: #565554;
+  --color-surface-container-lowest: #000000;
+  --color-on-secondary-fixed: #620061;
+  --color-on-primary: #00654b;
+  --color-tertiary-container: #cafd00;
+  --color-outline: #777575;
+  --color-secondary-fixed: #ffbdf3;
+  --color-on-primary-fixed: #004734;
+  --color-surface-tint: #aaffdc;
+  --color-tertiary: #f3ffca;
+  --color-inverse-surface: #fcf8f8;
+  --color-on-primary-fixed-variant: #00664c;
+  --color-primary: #aaffdc;
+  --color-on-surface: #ffffff;
+  --color-surface-container-low: #131313;
+  --color-on-primary-container: #005c44;
+  --color-error-dim: #d7383b;
+  --color-on-surface-variant: #adaaaa;
+  --color-surface-dim: #0e0e0e;
+  --color-surface-container: #1a1919;
+  --color-on-background: #ffffff;
+  --color-on-tertiary-container: #4a5e00;
+  --color-tertiary-fixed-dim: #beee00;
+  --color-on-tertiary-fixed-variant: #526900;
+  --color-on-secondary: #400040;
+  --color-on-secondary-container: #fff5f9;
+  --color-secondary-fixed-dim: #ffa6f3;
+  --color-tertiary-fixed: #cafd00;
+  --color-tertiary-dim: #beee00;
+  --color-surface-container-high: #201f1f;
+  --color-inverse-primary: #006c51;
+  --color-on-secondary-fixed-variant: #920091;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.scanline {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 194, 0.05) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+.grid-overlay {
+  background-image: radial-gradient(rgba(73, 72, 71, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
