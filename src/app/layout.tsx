@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Space_Grotesk } from "next/font/google";
+import { Be_Vietnam_Pro, Space_Grotesk, Inter } from "next/font/google";
 import { DeferredAnalytics } from "@/components/DeferredAnalytics";
 import { SmoothAnchorScroll } from "@/components/SmoothAnchorScroll";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -39,7 +42,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${spaceGrotesk.variable} ${beVietnam.variable} antialiased`}
+      className={cn("dark", "antialiased", spaceGrotesk.variable, beVietnam.variable, "font-sans", inter.variable)}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

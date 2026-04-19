@@ -1,3 +1,5 @@
+import { HeroHeading } from "./HeroHeading";
+
 export function HeroSection() {
   return (
     <section
@@ -13,11 +15,7 @@ export function HeroSection() {
             SYSTEM_INITIALIZED // ARCHITECT_V2.0
           </span>
         </div>
-        <h1 className="font-headline mb-6 max-w-full text-[clamp(2rem,10vw,7.5rem)] font-black uppercase leading-[0.95] tracking-tighter sm:mb-8">
-          DEV<span className="text-primary">_</span>UNIT
-          <br />
-          <span className="text-primary-container">OS_01</span>
-        </h1>
+        <HeroHeading />
         <div className="flex w-full min-w-0 flex-col items-stretch gap-8 md:flex-row md:items-center">
           <div className="min-w-0 border-l-4 border-primary bg-surface-container-high p-4 sm:p-6">
             <p className="font-mono max-w-lg text-xs leading-relaxed break-words text-primary-dim sm:text-sm md:text-base">
