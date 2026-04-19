@@ -59,10 +59,13 @@ const tagColor: Record<(typeof cards)[number]["accent"], string> = {
 
 export function TechSection() {
   return (
-    <section className="bg-surface-container-low px-10 py-24 md:px-20" id="tech">
-      <div className="mb-16 flex items-end justify-between">
-        <div>
-          <h2 className="font-headline mb-4 text-4xl font-black uppercase tracking-tighter md:text-5xl">
+    <section
+      className="bg-surface-container-low px-4 py-16 sm:px-8 sm:py-20 md:px-20 md:py-24"
+      id="tech"
+    >
+      <div className="mb-10 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
+        <div className="min-w-0">
+          <h2 className="font-headline mb-4 text-3xl font-black uppercase tracking-tighter sm:text-4xl md:text-5xl">
             _TECHNOLOGIES
           </h2>
           <p className="font-body max-w-md text-sm uppercase tracking-widest text-on-surface-variant">
@@ -82,7 +85,7 @@ export function TechSection() {
         {cards.map((c) => (
           <div
             key={c.n}
-            className={`group relative overflow-hidden border border-outline-variant/15 bg-surface p-8 transition-all ${borderHover[c.accent]}`}
+            className={`group relative min-w-0 overflow-hidden border border-outline-variant/15 bg-surface p-5 transition-all sm:p-8 ${borderHover[c.accent]}`}
           >
             <div
               className={`absolute top-0 right-0 p-2 font-mono text-[10px] ${indexColor[c.accent]}`}

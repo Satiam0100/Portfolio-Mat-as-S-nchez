@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   description: "Minimal technopunk developer portfolio",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0e0e0e",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

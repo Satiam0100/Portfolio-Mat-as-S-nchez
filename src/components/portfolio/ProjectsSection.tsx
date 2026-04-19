@@ -12,12 +12,15 @@ const imgs = {
 
 export function ProjectsSection() {
   return (
-    <section className="bg-black px-10 py-24 md:px-20" id="work">
-      <h2 className="font-headline mb-16 text-4xl font-black uppercase tracking-tighter md:text-5xl">
+    <section
+      className="bg-black px-4 py-16 sm:px-8 sm:py-20 md:px-20 md:py-24"
+      id="work"
+    >
+      <h2 className="font-headline mb-10 text-3xl font-black uppercase tracking-tighter sm:mb-16 sm:text-4xl md:text-5xl">
         _PROJECT_LOGS
       </h2>
-      <div className="grid grid-cols-12 gap-6">
-        <div className="relative col-span-12 min-h-[400px] overflow-hidden border border-outline-variant/10 bg-surface-container group lg:col-span-8">
+      <div className="grid min-w-0 grid-cols-12 gap-4 sm:gap-6">
+        <div className="relative col-span-12 min-h-[min(400px,70vh)] overflow-hidden border border-outline-variant/10 bg-surface-container group sm:min-h-[400px] lg:col-span-8">
           <Image
             src={imgs.neural}
             alt="Sala de servidores futurista con luces neón cian y circuitos digitales"
@@ -26,8 +29,8 @@ export function ProjectsSection() {
             sizes="(max-width: 1024px) 100vw, 66vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-          <div className="absolute bottom-0 w-full p-10">
-            <div className="mb-4 flex items-center gap-4">
+          <div className="absolute bottom-0 w-full min-w-0 p-4 sm:p-6 md:p-10">
+            <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-4">
               <span className="bg-primary px-3 py-1 text-[10px] font-bold tracking-widest text-on-primary uppercase">
                 CORE_MODULE
               </span>
@@ -35,23 +38,23 @@ export function ProjectsSection() {
                 HASH: 7F0A2
               </span>
             </div>
-            <h3 className="font-headline mb-4 text-4xl font-bold">
+            <h3 className="font-headline mb-3 break-words text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">
               NEURAL_NET_INTERFACE
             </h3>
-            <p className="mb-6 max-w-xl text-sm leading-relaxed text-on-surface-variant">
+            <p className="mb-4 max-w-xl text-xs leading-relaxed text-on-surface-variant sm:mb-6 sm:text-sm">
               A real-time data visualization dashboard for tracking distributed
               AI processing units across global nodes.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <button
                 type="button"
-                className="bg-primary px-6 py-2 text-xs font-bold text-on-primary uppercase transition-all hover:shadow-[0_0_15px_#aaffdc]"
+                className="w-full bg-primary px-6 py-2 text-xs font-bold text-on-primary uppercase transition-all hover:shadow-[0_0_15px_#aaffdc] sm:w-auto"
               >
                 _DEPLOY_LINK
               </button>
               <button
                 type="button"
-                className="border border-white/20 px-6 py-2 text-xs font-bold text-white uppercase transition-all hover:bg-white/10"
+                className="w-full border border-white/20 px-6 py-2 text-xs font-bold text-white uppercase transition-all hover:bg-white/10 sm:w-auto"
               >
                 _GIT_REPO
               </button>
@@ -59,7 +62,7 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div className="relative col-span-12 min-h-[400px] overflow-hidden border border-outline-variant/10 bg-surface-container group lg:col-span-4">
+        <div className="relative col-span-12 min-h-[min(400px,70vh)] overflow-hidden border border-outline-variant/10 bg-surface-container group sm:min-h-[400px] lg:col-span-4">
           <Image
             src={imgs.crypto}
             alt="Ondas de luz neón rosa y azul sobre fondo oscuro"
@@ -68,8 +71,8 @@ export function ProjectsSection() {
             sizes="(max-width: 1024px) 100vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-          <div className="absolute bottom-0 p-8">
-            <h3 className="font-headline mb-2 text-2xl font-bold">
+          <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
               CRYPTO_STREAM
             </h3>
             <p className="mb-6 text-xs text-on-surface-variant">
@@ -81,7 +84,7 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div className="relative col-span-12 min-h-[400px] overflow-hidden border border-outline-variant/10 bg-surface-container group md:col-span-6 lg:col-span-4">
+        <div className="relative col-span-12 min-h-[min(400px,70vh)] overflow-hidden border border-outline-variant/10 bg-surface-container group sm:min-h-[400px] md:col-span-6 lg:col-span-4">
           <Image
             src={imgs.void}
             alt="Formas geométricas cristalinas 3D con iluminación cian"
@@ -90,8 +93,10 @@ export function ProjectsSection() {
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-          <div className="absolute bottom-0 p-8">
-            <h3 className="font-headline mb-2 text-2xl font-bold">VOID_UI_KIT</h3>
+          <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
+              VOID_UI_KIT
+            </h3>
             <p className="mb-6 text-xs text-on-surface-variant">
               Open-source brutalist design system for Next.js applications.
             </p>
@@ -101,7 +106,7 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        <div className="relative col-span-12 min-h-[400px] overflow-hidden border border-outline-variant/10 bg-surface-container group md:col-span-6 lg:col-span-8">
+        <div className="relative col-span-12 min-h-[min(400px,70vh)] overflow-hidden border border-outline-variant/10 bg-surface-container group sm:min-h-[400px] md:col-span-6 lg:col-span-8">
           <Image
             src={imgs.sat}
             alt="Vista satelital de la Tierra con conexiones de datos luminosas"
@@ -110,8 +115,8 @@ export function ProjectsSection() {
             sizes="(max-width: 768px) 100vw, 66vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
-          <div className="absolute bottom-0 p-8">
-            <h3 className="font-headline mb-2 text-2xl font-bold">
+          <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
               SAT_NODE_MANAGER
             </h3>
             <p className="mb-6 text-xs text-on-surface-variant">

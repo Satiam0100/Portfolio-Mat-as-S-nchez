@@ -50,6 +50,7 @@ function readSectionFromHash(): NavSectionId {
 
 export function SiteNav() {
   const [active, setActive] = useState<NavSectionId>("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
   const smoothScrollingRef = useRef(false);
   const scrollTickingRef = useRef(false);
 
@@ -110,36 +111,120 @@ export function SiteNav() {
     };
   }, [applyScrollSpy]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
-    <nav className="fixed top-0 z-50 flex h-16 w-full items-center justify-between border-b border-[#494847]/15 bg-[#050505]/80 px-6 backdrop-blur-xl">
-      <div className="font-headline text-xl font-black tracking-tighter text-[#00FFC2]">
-        ARCHITECT_OS
-      </div>
-      <div className="hidden gap-2 font-headline text-sm uppercase tracking-tighter md:flex md:items-center">
-        {NAV_LINKS.map(({ id, label }) => {
-          const isActive = active === id;
-          return (
-            <a
-              key={id}
-              aria-current={isActive ? "page" : undefined}
-              className={
-                isActive
-                  ? `${linkBaseClass} ${activeLayerClass}`
-                  : `${linkBaseClass} ${inactiveHoverClass}`
-              }
-              href={`#${id}`}
-            >
-              {label}
-            </a>
-          );
-        })}
-      </div>
-      <button
-        type="button"
-        className="bg-[#00FFC2] px-4 py-2 font-headline text-xs font-bold uppercase text-[#00654b] transition-all hover:bg-[#00edb4]"
+    <>
+      <nav className="fixed top-0 z-50 flex h-16 w-full min-w-0 items-center justify-between gap-2 border-b border-[#494847]/15 bg-[#050505]/80 px-3 backdrop-blur-xl sm:gap-4 sm:px-6">
+        <div className="min-w-0 shrink font-headline text-base font-black tracking-tighter text-[#00FFC2] sm:text-lg md:text-xl">
+          <span className="block truncate">ARCHITECT_OS</span>
+        </div>
+        <div className="hidden min-w-0 flex-1 justify-center gap-1 font-headline text-xs uppercase tracking-tighter md:flex md:items-center md:gap-2 md:text-sm">
+          {NAV_LINKS.map(({ id, label }) => {
+            const isActive = active === id;
+            return (
+              <a
+                key={id}
+                aria-current={isActive ? "page" : undefined}
+                className={
+                  isActive
+                    ? `${linkBaseClass} ${activeLayerClass}`
+                    : `${linkBaseClass} ${inactiveHoverClass}`
+                }
+                href={`#${id}`}
+              >
+                {label}
+              </a>
+            );
+          })}
+        </div>
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+          <button
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded border border-white/10 text-[#00FFC2] transition-colors hover:bg-white/5 md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav-menu"
+            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            {menuOpen ? (
+              <span className="text-xl leading-none" aria-hidden>
+                ×
+              </span>
+            ) : (
+              <span className="flex flex-col gap-1.5" aria-hidden>
+                <span className="block h-0.5 w-5 bg-current" />
+                <span className="block h-0.5 w-5 bg-current" />
+                <span className="block h-0.5 w-5 bg-current" />
+              </span>
+            )}
+          </button>
+          <button
+            type="button"
+            className="bg-[#00FFC2] px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00654b] transition-all hover:bg-[#00edb4] sm:px-4 sm:text-xs"
+          >
+            _CONNECT
+          </button>
+        </div>
+      </nav>
+
+      <div
+        className={`fixed inset-x-0 top-16 z-[60] max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-[#494847]/15 bg-[#050505]/98 backdrop-blur-xl md:hidden ${
+          menuOpen ? "flex" : "hidden"
+        }`}
+        id="mobile-nav-menu"
+        role="navigation"
+        aria-hidden={!menuOpen}
       >
-        _CONNECT
-      </button>
-    </nav>
+        <div className="flex w-full flex-col gap-1 p-3 font-headline text-sm uppercase tracking-tighter">
+          {NAV_LINKS.map(({ id, label }) => {
+            const isActive = active === id;
+            return (
+              <a
+                key={id}
+                aria-current={isActive ? "page" : undefined}
+                className={
+                  isActive
+                    ? `${linkBaseClass} justify-center py-3 ${activeLayerClass}`
+                    : `${linkBaseClass} justify-center py-3 ${inactiveHoverClass}`
+                }
+                href={`#${id}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+
+      {menuOpen ? (
+        <button
+          type="button"
+          className="fixed inset-0 top-16 z-[55] bg-black/50 md:hidden"
+          aria-label="Cerrar menú"
+          tabIndex={-1}
+          onClick={() => setMenuOpen(false)}
+        />
+      ) : null}
+    </>
   );
 }

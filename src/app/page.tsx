@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <SiteNav />
       <SideNav />
-      <main className="lg:pl-20">
+      <main className="min-w-0 max-w-[100vw] overflow-x-hidden lg:pl-20">
         <HeroSection />
         <TechSection />
         <TimelineSection />
