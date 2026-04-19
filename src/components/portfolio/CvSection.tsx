@@ -1,3 +1,5 @@
+import { StitchDownloadIcon } from "./SideNav";
+
 export function CvSection() {
   return (
     <section
@@ -10,9 +12,7 @@ export function CvSection() {
         <div className="absolute top-0 right-0 h-2 w-2 bg-primary" />
         <div className="absolute bottom-0 left-0 h-2 w-2 bg-primary" />
         <div className="absolute right-0 bottom-0 h-2 w-2 bg-primary" />
-        <span className="material-symbols-outlined mb-8 text-6xl text-primary">
-          file_download
-        </span>
+        <StitchDownloadIcon className="mx-auto mb-8 block h-16 w-16 text-primary" />
         <h2 className="font-headline mb-4 text-2xl font-black tracking-tighter text-white uppercase sm:text-3xl md:text-4xl">
           SYSTEM_ACCESS_GRANTED
         </h2>

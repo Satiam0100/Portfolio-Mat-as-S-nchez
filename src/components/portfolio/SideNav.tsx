@@ -102,6 +102,26 @@ function StitchUnitLogo({ className }: { className?: string }) {
   );
 }
 
+/** Mismo estilo de trazo que TERM / STRM / … (sidebar). */
+export function StitchDownloadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 21h14" />
+    </svg>
+  );
+}
+
 const items: ReadonlyArray<{
   label: string;
   active: boolean;
