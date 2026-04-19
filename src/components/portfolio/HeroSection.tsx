@@ -1,6 +1,11 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import { HeroHeading } from "./HeroHeading";
 
 export function HeroSection() {
+  const { t } = useTranslation();
+
   return (
     <section
       className="relative flex min-h-screen flex-col justify-center overflow-x-hidden px-4 pt-16 sm:px-8 md:px-20"
@@ -12,23 +17,23 @@ export function HeroSection() {
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
           <span className="hidden h-[1px] w-12 shrink-0 bg-primary sm:block" />
           <span className="font-label max-w-full text-[10px] font-bold uppercase leading-snug tracking-[0.15em] text-primary sm:text-xs sm:tracking-[0.2em]">
-            SYSTEM_INITIALIZED // ARCHITECT_V2.0
+            {t("hero.badge")}
           </span>
         </div>
         <HeroHeading />
         <div className="flex w-full min-w-0 flex-col items-stretch gap-8 md:flex-row md:items-center">
           <div className="min-w-0 border-l-4 border-primary bg-surface-container-high p-4 sm:p-6">
             <p className="font-mono max-w-lg text-xs leading-relaxed break-words text-primary-dim sm:text-sm md:text-base">
-              <span className="text-white/40">guest@architect:~$</span> build
-              --target full-stack
+              <span className="text-white/40">{t("hero.terminalPrompt")}</span>{" "}
+              {t("hero.terminalBuild")}
               <br />
-              <span className="text-white/40">[LOG]</span> Compiling
-              high-fidelity interfaces...
+              <span className="text-white/40">[LOG]</span>{" "}
+              {t("hero.terminalLog1Body")}
               <br />
-              <span className="text-white/40">[LOG]</span> Optimizing React
-              architectures...
+              <span className="text-white/40">[LOG]</span>{" "}
+              {t("hero.terminalLog2Body")}
               <br />
-              <span className="text-white">STATUS: READY_TO_DEPLOY</span>
+              <span className="text-white">{t("hero.terminalStatus")}</span>
               <span className="animate-pulse">_</span>
             </p>
           </div>
@@ -37,13 +42,13 @@ export function HeroSection() {
               type="button"
               className="font-headline w-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-widest text-on-primary transition-all hover:shadow-[0_0_20px_rgba(170,255,220,0.4)] active:scale-95 sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
             >
-              _EXECUTE_PROJECTS
+              {t("hero.ctaExecute")}
             </button>
             <button
               type="button"
               className="font-headline w-full border border-primary px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-on-primary sm:w-auto sm:px-8 sm:py-4 sm:text-sm"
             >
-              _ACCESS_CORE_CV
+              {t("hero.ctaCv")}
             </button>
           </div>
         </div>

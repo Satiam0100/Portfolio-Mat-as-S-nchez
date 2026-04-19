@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Space_Grotesk, Inter } from "next/font/google";
 import { DeferredAnalytics } from "@/components/DeferredAnalytics";
+import { Providers } from "@/components/Providers";
 import { SmoothAnchorScroll } from "@/components/SmoothAnchorScroll";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -53,9 +54,11 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden min-h-screen">
-        <SmoothAnchorScroll />
-        {children}
-        <DeferredAnalytics />
+        <Providers>
+          <SmoothAnchorScroll />
+          {children}
+          <DeferredAnalytics />
+        </Providers>
       </body>
     </html>
   );

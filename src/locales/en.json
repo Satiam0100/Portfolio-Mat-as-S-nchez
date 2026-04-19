@@ -1,0 +1,140 @@
+{
+  "nav": {
+    "hero": "_HERO",
+    "tech": "_TECH",
+    "work": "_WORK",
+    "cv": "_CV",
+    "connect": "_CONNECT",
+    "ariaMenuOpen": "Close menu",
+    "ariaMenuClosed": "Open menu",
+    "ariaMenuBackdrop": "Close menu"
+  },
+  "languageModal": {
+    "title": "Language · Idioma",
+    "subtitle": "Select interface language · Elegí el idioma de la interfaz",
+    "english": "English",
+    "spanish": "Español",
+    "close": "_CLOSE",
+    "closeBackdrop": "Close"
+  },
+  "hero": {
+    "badge": "SYSTEM_INITIALIZED // ARCHITECT_V2.0",
+    "headingLine1": "DEV_UNIT",
+    "headingLine2": "OS_01",
+    "terminalPrompt": "guest@architect:~$",
+    "terminalBuild": "build --target full-stack",
+    "terminalLog1Body": "Compiling high-fidelity interfaces...",
+    "terminalLog2Body": "Optimizing React architectures...",
+    "terminalStatus": "STATUS: READY_TO_DEPLOY",
+    "ctaExecute": "_EXECUTE_PROJECTS",
+    "ctaCv": "_ACCESS_CORE_CV"
+  },
+  "tech": {
+    "title": "_TECHNOLOGIES",
+    "subtitle": "Advanced module integration and engineering stacks.",
+    "mono1": "0x0001 // REACT_CORE",
+    "mono2": "0x0002 // TYPESCRIPT_ENGINE",
+    "cards": [
+      {
+        "n": "01",
+        "icon": "deployed_code",
+        "accent": "primary",
+        "title": "REACT_UI",
+        "body": "High-performance component architecture and state management systems.",
+        "tags": ["HOOKS", "VIRTUAL_DOM"]
+      },
+      {
+        "n": "02",
+        "icon": "terminal",
+        "accent": "secondary",
+        "title": "TYPESCRIPT",
+        "body": "Type-safe development ensuring runtime stability and architecture clarity.",
+        "tags": ["STRICT_MODE", "GENERICS"]
+      },
+      {
+        "n": "03",
+        "icon": "css",
+        "accent": "tertiary",
+        "title": "TAILWIND_UX",
+        "body": "Utility-first design methodology for rapid and scalable styling systems.",
+        "tags": ["JIT_ENGINE", "GRID_LAYOUT"]
+      },
+      {
+        "n": "04",
+        "icon": "database",
+        "accent": "primary",
+        "title": "NODE_SERVER",
+        "body": "Scalable backend services and API design for complex data streams.",
+        "tags": ["EXPRESS", "REST_API"]
+      }
+    ]
+  },
+  "timeline": {
+    "title": "_TIMELINE_SEQUENCING",
+    "entries": [
+      {
+        "period": "2021 - PRESENT",
+        "role": "SENIOR FRONTEND ARCHITECT",
+        "body": "Leading interface engineering for global data management platforms."
+      },
+      {
+        "period": "2018 - 2021",
+        "role": "SYSTEMS DEVELOPER",
+        "body": "Building internal toolings and module libraries for enterprise systems."
+      },
+      {
+        "period": "2014 - 2018",
+        "role": "COMP_SCI_DEGREE",
+        "body": "Foundational logic and algorithm engineering certification."
+      }
+    ]
+  },
+  "projects": {
+    "title": "_PROJECT_LOGS",
+    "featured": {
+      "badge": "CORE_MODULE",
+      "hash": "HASH: 7F0A2",
+      "title": "NEURAL_NET_INTERFACE",
+      "description": "A real-time data visualization dashboard for tracking distributed AI processing units across global nodes.",
+      "deploy": "_DEPLOY_LINK",
+      "repo": "_GIT_REPO"
+    },
+    "crypto": {
+      "title": "CRYPTO_STREAM",
+      "description": "Live transaction monitoring engine with 0.1ms latency."
+    },
+    "void": {
+      "title": "VOID_UI_KIT",
+      "description": "Open-source brutalist design system for Next.js applications."
+    },
+    "sat": {
+      "title": "SAT_NODE_MANAGER",
+      "description": "Orbital telemetry processing unit with integrated Mapbox GL modules."
+    },
+    "images": {
+      "neuralAlt": "Futuristic server room with cyan neon lights and digital circuits",
+      "cryptoAlt": "Pink and blue neon light waves on a dark background",
+      "voidAlt": "3D crystalline geometric shapes with cyan lighting",
+      "satAlt": "Satellite view of Earth with luminous data connections"
+    }
+  },
+  "cv": {
+    "title": "SYSTEM_ACCESS_GRANTED",
+    "body": "Download the full technical specification and operational history of UNIT_01.",
+    "download": "_DOWNLOAD_PDF",
+    "viewOnline": "_VIEW_ONLINE"
+  },
+  "footer": {
+    "copyright": "©2024_SYSTEM_ARCHITECT_PORTFOLIO",
+    "github": "GITHUB",
+    "linkedin": "LINKEDIN",
+    "source": "SOURCE_CODE",
+    "status": "SYSTEM_STATUS: ONLINE"
+  },
+  "contactFab": {
+    "ariaLabel": "Contact"
+  },
+  "sideNav": {
+    "unitLabel": "UNIT_01"
+  }
+}

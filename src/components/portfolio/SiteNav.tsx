@@ -10,13 +10,8 @@ import {
   isNavSectionId,
 } from "@/lib/nav-sections";
 import { useCallback, useEffect, useRef, useState } from "react";
-
-const NAV_LINKS: { id: NavSectionId; label: string }[] = [
-  { id: "hero", label: "_HERO" },
-  { id: "tech", label: "_TECH" },
-  { id: "work", label: "_WORK" },
-  { id: "cv", label: "_CV" },
-];
+import { useTranslation } from "react-i18next";
+import { LanguageModal } from "./LanguageModal";
 
 /** Misma capa visual que el botón `_EXECUTE_PROJECTS` del hero. */
 const activeLayerClass =
@@ -49,8 +44,10 @@ function readSectionFromHash(): NavSectionId {
 }
 
 export function SiteNav() {
+  const { t, i18n } = useTranslation();
   const [active, setActive] = useState<NavSectionId>("hero");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langModalOpen, setLangModalOpen] = useState(false);
   const smoothScrollingRef = useRef(false);
   const scrollTickingRef = useRef(false);
 
@@ -60,7 +57,9 @@ export function SiteNav() {
   }, []);
 
   useEffect(() => {
-    setActive(readSectionFromHash());
+    const id = requestAnimationFrame(() => {
+      setActive(readSectionFromHash());
+    });
 
     const onNavigate = (e: Event) => {
       const detail = (e as CustomEvent<NavigateSectionEventDetail>).detail;
@@ -100,6 +99,7 @@ export function SiteNav() {
     window.addEventListener("hashchange", onHashChange);
 
     return () => {
+      cancelAnimationFrame(id);
       window.removeEventListener(
         NAVIGATE_SECTION_EVENT,
         onNavigate as EventListener,
@@ -138,7 +138,15 @@ export function SiteNav() {
           <span className="block truncate">ARCHITECT_OS</span>
         </div>
         <div className="hidden min-w-0 flex-1 justify-center gap-1 font-headline text-xs uppercase tracking-tighter md:flex md:items-center md:gap-2 md:text-sm">
-          {NAV_LINKS.map(({ id, label }) => {
+          {(
+            [
+              { id: "hero" as const, labelKey: "nav.hero" },
+              { id: "tech" as const, labelKey: "nav.tech" },
+              { id: "work" as const, labelKey: "nav.work" },
+              { id: "cv" as const, labelKey: "nav.cv" },
+            ] as const
+          ).map(({ id, labelKey }) => {
+            const label = t(labelKey);
             const isActive = active === id;
             return (
               <a
@@ -162,7 +170,9 @@ export function SiteNav() {
             className="flex h-10 w-10 items-center justify-center rounded border border-white/10 text-[#00FFC2] transition-colors hover:bg-white/5 md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-menu"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={
+              menuOpen ? t("nav.ariaMenuOpen") : t("nav.ariaMenuClosed")
+            }
             onClick={() => setMenuOpen((o) => !o)}
           >
             {menuOpen ? (
@@ -179,12 +189,27 @@ export function SiteNav() {
           </button>
           <button
             type="button"
+            className="border border-white/10 px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00FFC2] transition-colors hover:bg-white/5 sm:px-3 sm:text-xs"
+            aria-expanded={langModalOpen}
+            aria-haspopup="dialog"
+            aria-controls="language-modal"
+            onClick={() => setLangModalOpen(true)}
+          >
+            {i18n.language.startsWith("es") ? "_ES" : "_EN"}
+          </button>
+          <button
+            type="button"
             className="bg-[#00FFC2] px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00654b] transition-all hover:bg-[#00edb4] sm:px-4 sm:text-xs"
           >
-            _CONNECT
+            {t("nav.connect")}
           </button>
         </div>
       </nav>
+
+      <LanguageModal
+        open={langModalOpen}
+        onClose={() => setLangModalOpen(false)}
+      />
 
       <div
         className={`fixed inset-x-0 top-16 z-[60] max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-[#494847]/15 bg-[#050505]/98 backdrop-blur-xl md:hidden ${
@@ -195,7 +220,15 @@ export function SiteNav() {
         aria-hidden={!menuOpen}
       >
         <div className="flex w-full flex-col gap-1 p-3 font-headline text-sm uppercase tracking-tighter">
-          {NAV_LINKS.map(({ id, label }) => {
+          {(
+            [
+              { id: "hero" as const, labelKey: "nav.hero" },
+              { id: "tech" as const, labelKey: "nav.tech" },
+              { id: "work" as const, labelKey: "nav.work" },
+              { id: "cv" as const, labelKey: "nav.cv" },
+            ] as const
+          ).map(({ id, labelKey }) => {
+            const label = t(labelKey);
             const isActive = active === id;
             return (
               <a
@@ -220,7 +253,7 @@ export function SiteNav() {
         <button
           type="button"
           className="fixed inset-0 top-16 z-[55] bg-black/50 md:hidden"
-          aria-label="Cerrar menú"
+          aria-label={t("nav.ariaMenuBackdrop")}
           tabIndex={-1}
           onClick={() => setMenuOpen(false)}
         />

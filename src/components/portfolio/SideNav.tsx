@@ -1,4 +1,7 @@
+"use client";
+
 import type { ComponentType } from "react";
+import { useTranslation } from "react-i18next";
 
 const stroke = 1.5;
 
@@ -134,6 +137,8 @@ const items: ReadonlyArray<{
 ];
 
 export function SideNav() {
+  const { t } = useTranslation();
+
   return (
     <aside className="tonal-shifts-via-black fixed top-16 bottom-0 left-0 z-40 hidden w-20 flex-col items-center border-r border-[#494847]/15 bg-[#0e0e0e] pt-6 pb-8 lg:flex">
       <div className="mb-12 flex flex-col items-center gap-2">
@@ -141,7 +146,7 @@ export function SideNav() {
           <StitchUnitLogo className="h-5 w-5 text-primary" />
         </div>
         <span className="text-[10px] font-black tracking-tighter text-[#00FFC2]">
-          UNIT_01
+          {t("sideNav.unitLabel")}
         </span>
       </div>
       <div className="flex flex-col gap-10">

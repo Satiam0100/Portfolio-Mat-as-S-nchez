@@ -1,63 +1,46 @@
-const cards = [
-  {
-    n: "01",
-    icon: "deployed_code",
-    accent: "primary" as const,
-    title: "REACT_UI",
-    body: "High-performance component architecture and state management systems.",
-    tags: ["HOOKS", "VIRTUAL_DOM"],
-  },
-  {
-    n: "02",
-    icon: "terminal",
-    accent: "secondary" as const,
-    title: "TYPESCRIPT",
-    body: "Type-safe development ensuring runtime stability and architecture clarity.",
-    tags: ["STRICT_MODE", "GENERICS"],
-  },
-  {
-    n: "03",
-    icon: "css",
-    accent: "tertiary" as const,
-    title: "TAILWIND_UX",
-    body: "Utility-first design methodology for rapid and scalable styling systems.",
-    tags: ["JIT_ENGINE", "GRID_LAYOUT"],
-  },
-  {
-    n: "04",
-    icon: "database",
-    accent: "primary" as const,
-    title: "NODE_SERVER",
-    body: "Scalable backend services and API design for complex data streams.",
-    tags: ["EXPRESS", "REST_API"],
-  },
-];
+"use client";
 
-const borderHover: Record<(typeof cards)[number]["accent"], string> = {
+import { useTranslation } from "react-i18next";
+
+type TechAccent = "primary" | "secondary" | "tertiary";
+
+type TechCard = {
+  n: string;
+  icon: string;
+  accent: TechAccent;
+  title: string;
+  body: string;
+  tags: string[];
+};
+
+const borderHover: Record<TechAccent, string> = {
   primary: "hover:border-primary/50",
   secondary: "hover:border-secondary/50",
   tertiary: "hover:border-tertiary/50",
 };
 
-const indexColor: Record<(typeof cards)[number]["accent"], string> = {
+const indexColor: Record<TechAccent, string> = {
   primary: "text-primary/20",
   secondary: "text-secondary/20",
   tertiary: "text-tertiary/20",
 };
 
-const iconColor: Record<(typeof cards)[number]["accent"], string> = {
+const iconColor: Record<TechAccent, string> = {
   primary: "text-primary",
   secondary: "text-secondary",
   tertiary: "text-tertiary",
 };
 
-const tagColor: Record<(typeof cards)[number]["accent"], string> = {
+const tagColor: Record<TechAccent, string> = {
   primary: "text-primary",
   secondary: "text-secondary",
   tertiary: "text-tertiary",
 };
 
 export function TechSection() {
+  const { t } = useTranslation();
+  const cards = t("tech.cards", { returnObjects: true }) as TechCard[];
+
   return (
     <section
       className="bg-surface-container-low px-4 py-16 sm:px-8 sm:py-20 md:px-20 md:py-24"
@@ -66,18 +49,18 @@ export function TechSection() {
       <div className="mb-10 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
           <h2 className="font-headline mb-4 text-3xl font-black uppercase tracking-tighter sm:text-4xl md:text-5xl">
-            _TECHNOLOGIES
+            {t("tech.title")}
           </h2>
           <p className="font-body max-w-md text-sm uppercase tracking-widest text-on-surface-variant">
-            Advanced module integration and engineering stacks.
+            {t("tech.subtitle")}
           </p>
         </div>
         <div className="hidden text-right md:block">
           <span className="font-mono block text-[8px] text-primary/40">
-            0x0001 // REACT_CORE
+            {t("tech.mono1")}
           </span>
           <span className="font-mono block text-[8px] text-primary/40">
-            0x0002 // TYPESCRIPT_ENGINE
+            {t("tech.mono2")}
           </span>
         </div>
       </div>
@@ -104,12 +87,12 @@ export function TechSection() {
               {c.body}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {c.tags.map((t) => (
+              {c.tags.map((tag) => (
                 <span
-                  key={t}
+                  key={tag}
                   className={`bg-surface-variant px-2 py-1 text-[10px] font-bold ${tagColor[c.accent]}`}
                 >
-                  {t}
+                  {tag}
                 </span>
               ))}
             </div>

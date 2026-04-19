@@ -1,0 +1,140 @@
+{
+  "nav": {
+    "hero": "_HERO",
+    "tech": "_TECH",
+    "work": "_WORK",
+    "cv": "_CV",
+    "connect": "_CONECTAR",
+    "ariaMenuOpen": "Cerrar menú",
+    "ariaMenuClosed": "Abrir menú",
+    "ariaMenuBackdrop": "Cerrar menú"
+  },
+  "languageModal": {
+    "title": "Idioma · Language",
+    "subtitle": "Elegí el idioma de la interfaz · Select interface language",
+    "english": "Inglés",
+    "spanish": "Español",
+    "close": "_CERRAR",
+    "closeBackdrop": "Cerrar"
+  },
+  "hero": {
+    "badge": "SISTEMA_INICIALIZADO // ARCHITECT_V2.0",
+    "headingLine1": "DEV_UNIT",
+    "headingLine2": "OS_01",
+    "terminalPrompt": "guest@architect:~$",
+    "terminalBuild": "build --target full-stack",
+    "terminalLog1Body": "Compilando interfaces de alta fidelidad...",
+    "terminalLog2Body": "Optimizando arquitecturas React...",
+    "terminalStatus": "ESTADO: LISTO_PARA_DESPLIEGUE",
+    "ctaExecute": "_EJECUTAR_PROYECTOS",
+    "ctaCv": "_ACCEDER_CV_CORE"
+  },
+  "tech": {
+    "title": "_TECNOLOGÍAS",
+    "subtitle": "Integración avanzada de módulos y stacks de ingeniería.",
+    "mono1": "0x0001 // REACT_CORE",
+    "mono2": "0x0002 // TYPESCRIPT_ENGINE",
+    "cards": [
+      {
+        "n": "01",
+        "icon": "deployed_code",
+        "accent": "primary",
+        "title": "REACT_UI",
+        "body": "Arquitectura de componentes de alto rendimiento y sistemas de gestión de estado.",
+        "tags": ["HOOKS", "VIRTUAL_DOM"]
+      },
+      {
+        "n": "02",
+        "icon": "terminal",
+        "accent": "secondary",
+        "title": "TYPESCRIPT",
+        "body": "Desarrollo tipado que asegura estabilidad en tiempo de ejecución y claridad de arquitectura.",
+        "tags": ["STRICT_MODE", "GENERICS"]
+      },
+      {
+        "n": "03",
+        "icon": "css",
+        "accent": "tertiary",
+        "title": "TAILWIND_UX",
+        "body": "Metodología utility-first para sistemas de estilo rápidos y escalables.",
+        "tags": ["JIT_ENGINE", "GRID_LAYOUT"]
+      },
+      {
+        "n": "04",
+        "icon": "database",
+        "accent": "primary",
+        "title": "NODE_SERVER",
+        "body": "Servicios backend escalables y diseño de APIs para flujos de datos complejos.",
+        "tags": ["EXPRESS", "REST_API"]
+      }
+    ]
+  },
+  "timeline": {
+    "title": "_CRONOLOGÍA_SECUENCIADA",
+    "entries": [
+      {
+        "period": "2021 - ACTUALIDAD",
+        "role": "ARQUITECTO FRONTEND SENIOR",
+        "body": "Liderando la ingeniería de interfaces para plataformas globales de gestión de datos."
+      },
+      {
+        "period": "2018 - 2021",
+        "role": "DESARROLLADOR DE SISTEMAS",
+        "body": "Construcción de herramientas internas y librerías de módulos para sistemas empresariales."
+      },
+      {
+        "period": "2014 - 2018",
+        "role": "GRADO_EN_INFORMÁTICA",
+        "body": "Certificación en lógica fundamental e ingeniería de algoritmos."
+      }
+    ]
+  },
+  "projects": {
+    "title": "_REGISTRO_DE_PROYECTOS",
+    "featured": {
+      "badge": "MÓDULO_CORE",
+      "hash": "HASH: 7F0A2",
+      "title": "INTERFAZ_RED_NEURONAL",
+      "description": "Panel de visualización de datos en tiempo real para seguir unidades de procesamiento de IA distribuidas en nodos globales.",
+      "deploy": "_ENLACE_DESPLIEGUE",
+      "repo": "_REPO_GIT"
+    },
+    "crypto": {
+      "title": "CRYPTO_STREAM",
+      "description": "Motor de monitoreo de transacciones en vivo con latencia de 0,1 ms."
+    },
+    "void": {
+      "title": "VOID_UI_KIT",
+      "description": "Sistema de diseño brutalista open source para aplicaciones Next.js."
+    },
+    "sat": {
+      "title": "SAT_NODE_MANAGER",
+      "description": "Unidad de procesamiento de telemetría orbital con módulos Mapbox GL integrados."
+    },
+    "images": {
+      "neuralAlt": "Sala de servidores futurista con luces neón cian y circuitos digitales",
+      "cryptoAlt": "Ondas de luz neón rosa y azul sobre fondo oscuro",
+      "voidAlt": "Formas geométricas cristalinas 3D con iluminación cian",
+      "satAlt": "Vista satelital de la Tierra con conexiones de datos luminosas"
+    }
+  },
+  "cv": {
+    "title": "ACCESO_AL_SISTEMA_CONCEDIDO",
+    "body": "Descargá la especificación técnica completa y el historial operativo de UNIT_01.",
+    "download": "_DESCARGAR_PDF",
+    "viewOnline": "_VER_EN_LÍNEA"
+  },
+  "footer": {
+    "copyright": "©2024_PORTFOLIO_ARQUITECTO_SISTEMAS",
+    "github": "GITHUB",
+    "linkedin": "LINKEDIN",
+    "source": "CÓDIGO_FUENTE",
+    "status": "ESTADO_SISTEMA: EN_LÍNEA"
+  },
+  "contactFab": {
+    "ariaLabel": "Contacto"
+  },
+  "sideNav": {
+    "unitLabel": "UNIT_01"
+  }
+}
