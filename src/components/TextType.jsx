@@ -23,6 +23,7 @@ const TextType = ({
   onSentenceComplete,
   startOnVisible = false,
   reverseMode = false,
+  accentAfterNewlineClassName = '',
   ...props
 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -150,6 +151,37 @@ const TextType = ({
   const shouldHideCursor =
     hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
+  const lineColor = getCurrentTextColor() || 'inherit';
+
+  const renderTypedContent = () => {
+    if (!accentAfterNewlineClassName) {
+      return (
+        <span className="text-type__content" style={{ color: lineColor }}>
+          {displayedText}
+        </span>
+      );
+    }
+    const nl = displayedText.indexOf('\n');
+    if (nl === -1) {
+      return (
+        <span className="text-type__content" style={{ color: lineColor }}>
+          {displayedText}
+        </span>
+      );
+    }
+    return (
+      <>
+        <span className="text-type__content" style={{ color: lineColor }}>
+          {displayedText.slice(0, nl)}
+        </span>
+        <br />
+        <span className={`text-type__content ${accentAfterNewlineClassName}`}>
+          {displayedText.slice(nl + 1)}
+        </span>
+      </>
+    );
+  };
+
   return createElement(
     Component,
     {
@@ -157,9 +189,7 @@ const TextType = ({
       className: `text-type ${className}`,
       ...props
     },
-    <span className="text-type__content" style={{ color: getCurrentTextColor() || 'inherit' }}>
-      {displayedText}
-    </span>,
+    renderTypedContent(),
     showCursor && (
       <span
         ref={cursorRef}

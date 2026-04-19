@@ -19,6 +19,8 @@ export interface TextTypeProps {
   onSentenceComplete?: (sentence: string, index: number) => void;
   startOnVisible?: boolean;
   reverseMode?: boolean;
+  /** Si el texto incluye `\n`, aplica esta clase a la segunda línea (p. ej. acento como el logo del nav). */
+  accentAfterNewlineClassName?: string;
   children?: ReactNode;
 }
 
