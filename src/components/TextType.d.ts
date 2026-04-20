@@ -21,6 +21,8 @@ export interface TextTypeProps {
   reverseMode?: boolean;
   /** Si el texto incluye `\n`, aplica esta clase a la segunda línea (p. ej. acento como el logo del nav). */
   accentAfterNewlineClassName?: string;
+  /** Si hay dos `\n` y esta clase está definida: línea 1 base, línea 2 acento, línea 3 subtítulo. */
+  subtitleAfterSecondNewlineClassName?: string;
   children?: ReactNode;
 }
 

@@ -24,6 +24,7 @@ const TextType = ({
   startOnVisible = false,
   reverseMode = false,
   accentAfterNewlineClassName = '',
+  subtitleAfterSecondNewlineClassName = '',
   ...props
 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -65,18 +66,31 @@ const TextType = ({
     return () => observer.disconnect();
   }, [startOnVisible]);
 
+  const currentSegment = textArray[currentTextIndex];
+  const processedSegment = reverseMode
+    ? currentSegment.split('').reverse().join('')
+    : currentSegment;
+
+  const isThreeLineComplete =
+    Boolean(subtitleAfterSecondNewlineClassName) &&
+    !loop &&
+    currentTextIndex === textArray.length - 1 &&
+    !isDeleting &&
+    currentCharIndex >= processedSegment.length &&
+    displayedText === processedSegment &&
+    (displayedText.match(/\n/g) || []).length >= 2;
+
   useEffect(() => {
-    if (showCursor && cursorRef.current) {
-      gsap.set(cursorRef.current, { opacity: 1 });
-      gsap.to(cursorRef.current, {
-        opacity: 0,
-        duration: cursorBlinkDuration,
-        repeat: -1,
-        yoyo: true,
-        ease: 'power2.inOut'
-      });
-    }
-  }, [showCursor, cursorBlinkDuration]);
+    if (!showCursor || !cursorRef.current) return;
+    gsap.set(cursorRef.current, { opacity: 1 });
+    gsap.to(cursorRef.current, {
+      opacity: 0,
+      duration: cursorBlinkDuration,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power2.inOut'
+    });
+  }, [showCursor, cursorBlinkDuration, isThreeLineComplete]);
 
   useEffect(() => {
     if (!isVisible) return;
@@ -149,9 +163,19 @@ const TextType = ({
   ]);
 
   const shouldHideCursor =
-    hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
+    hideCursorWhileTyping &&
+    (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
   const lineColor = getCurrentTextColor() || 'inherit';
+
+  const cursorSpan = (inline) => (
+    <span
+      ref={cursorRef}
+      className={`text-type__cursor ${inline ? 'align-baseline' : ''} ${cursorClassName} ${shouldHideCursor ? 'text-type__cursor--hidden' : ''}`}
+    >
+      {cursorCharacter}
+    </span>
+  );
 
   const renderTypedContent = () => {
     if (!accentAfterNewlineClassName) {
@@ -161,22 +185,45 @@ const TextType = ({
         </span>
       );
     }
-    const nl = displayedText.indexOf('\n');
-    if (nl === -1) {
+    const nlFirst = displayedText.indexOf('\n');
+    if (nlFirst === -1) {
       return (
         <span className="text-type__content" style={{ color: lineColor }}>
           {displayedText}
         </span>
       );
     }
+
+    const nlSecond = displayedText.indexOf('\n', nlFirst + 1);
+    if (subtitleAfterSecondNewlineClassName && nlSecond !== -1) {
+      return (
+        <>
+          <span className="text-type__content" style={{ color: lineColor }}>
+            {displayedText.slice(0, nlFirst)}
+          </span>
+          <br />
+          <span className={`text-type__content ${accentAfterNewlineClassName}`}>
+            {displayedText.slice(nlFirst + 1, nlSecond)}
+            {isThreeLineComplete && showCursor ? cursorSpan(true) : null}
+          </span>
+          <br />
+          <span
+            className={`text-type__content ${subtitleAfterSecondNewlineClassName}`}
+          >
+            {displayedText.slice(nlSecond + 1)}
+          </span>
+        </>
+      );
+    }
+
     return (
       <>
         <span className="text-type__content" style={{ color: lineColor }}>
-          {displayedText.slice(0, nl)}
+          {displayedText.slice(0, nlFirst)}
         </span>
         <br />
         <span className={`text-type__content ${accentAfterNewlineClassName}`}>
-          {displayedText.slice(nl + 1)}
+          {displayedText.slice(nlFirst + 1)}
         </span>
       </>
     );
@@ -190,14 +237,7 @@ const TextType = ({
       ...props
     },
     renderTypedContent(),
-    showCursor && (
-      <span
-        ref={cursorRef}
-        className={`text-type__cursor ${cursorClassName} ${shouldHideCursor ? 'text-type__cursor--hidden' : ''}`}
-      >
-        {cursorCharacter}
-      </span>
-    )
+    showCursor && !isThreeLineComplete && cursorSpan(false)
   );
 };
 
