@@ -6,7 +6,7 @@ const isProd = process.env.NODE_ENV === "production";
 /**
  * Cabeceras HTTP de seguridad (OWASP / hardening típico en Next.js).
  *
- * CORS en rutas `/api`: ver `src/middleware.ts` y `src/lib/cors.ts` (whitelist +
+ * CORS en rutas `/api`: ver `src/proxy.ts` y `src/lib/cors.ts` (whitelist +
  * mismo origen). El HTML sirve igual de origen; no uses `*` con credenciales.
  */
 const securityHeaders: { key: string; value: string }[] = [
