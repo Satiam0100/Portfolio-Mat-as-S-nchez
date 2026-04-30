@@ -1,6 +1,6 @@
 "use client";
 
-import i18n from "@/i18n/client";
+import i18n, { refreshTranslationBundlesDev } from "@/i18n/client";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
@@ -25,6 +25,8 @@ export function Providers({ children }: { children: ReactNode }) {
     if (stored === "en" || stored === "es") {
       void i18n.changeLanguage(stored);
     }
+
+    refreshTranslationBundlesDev();
 
     return () => {
       i18n.off("languageChanged", onPersist);

@@ -76,11 +76,11 @@ export function TechSection() {
               {c.n}
             </div>
             <span
-              className={`material-symbols-outlined mb-6 block text-4xl ${iconColor[c.accent]}`}
+              className={`material-symbols-outlined mb-4 block text-4xl ${iconColor[c.accent]}`}
             >
               {c.icon}
             </span>
-            <h3 className="font-headline mb-2 text-xl font-bold text-neutral-950 dark:text-white">
+            <h3 className="font-headline mb-3 min-w-0 max-w-full pr-8 text-balance break-words hyphens-none text-xl leading-tight font-black uppercase tracking-tighter text-neutral-950 [overflow-wrap:anywhere] dark:text-white sm:text-2xl md:text-[1.35rem] md:leading-snug lg:text-lg lg:leading-tight xl:text-2xl xl:leading-snug">
               {c.title}
             </h3>
             <p className="text-xs leading-relaxed text-on-surface-variant">

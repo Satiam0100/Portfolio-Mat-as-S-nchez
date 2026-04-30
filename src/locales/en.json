@@ -41,41 +41,41 @@
   },
   "tech": {
     "title": "_TECHNOLOGIES",
-    "subtitle": "Advanced module integration and engineering stacks.",
-    "mono1": "0x0001 // REACT_CORE",
-    "mono2": "0x0002 // TYPESCRIPT_ENGINE",
+    "subtitle": "Stack from CV · languages, frameworks, data, and delivery.",
+    "mono1": "0x0001 // CV_LANGUAGES",
+    "mono2": "0x0002 // CV_TOOLING",
     "cards": [
       {
         "n": "01",
-        "icon": "deployed_code",
+        "icon": "terminal",
         "accent": "primary",
-        "title": "REACT_UI",
-        "body": "High-performance component architecture and state management systems.",
-        "tags": ["HOOKS", "VIRTUAL_DOM"]
+        "title": "WEB_LANGUAGES",
+        "body": "JavaScript and TypeScript with HTML5 and CSS3 for web interfaces.",
+        "tags": ["JS", "TS", "HTML5", "CSS3"]
       },
       {
         "n": "02",
-        "icon": "terminal",
+        "icon": "deployed_code",
         "accent": "secondary",
-        "title": "TYPESCRIPT",
-        "body": "Type-safe development ensuring runtime stability and architecture clarity.",
-        "tags": ["STRICT_MODE", "GENERICS"]
+        "title": "FRAMEWORKS_AND_BUILD",
+        "body": "React, Node.js, and Vite; Git/GitHub; shipping with Vercel.",
+        "tags": ["REACT", "NODE", "VITE", "GIT"]
       },
       {
         "n": "03",
-        "icon": "css",
+        "icon": "database",
         "accent": "tertiary",
-        "title": "TAILWIND_UX",
-        "body": "Utility-first design methodology for rapid and scalable styling systems.",
-        "tags": ["JIT_ENGINE", "GRID_LAYOUT"]
+        "title": "DATA_AND_APIS",
+        "body": "PostgreSQL and front-end integration with backend services via APIs.",
+        "tags": ["POSTGRESQL", "APIS"]
       },
       {
         "n": "04",
-        "icon": "database",
+        "icon": "integrations",
         "accent": "primary",
-        "title": "NODE_SERVER",
-        "body": "Scalable backend services and API design for complex data streams.",
-        "tags": ["EXPRESS", "REST_API"]
+        "title": "INTEGRATION",
+        "body": "Agile Scrum, UI interfaces, customizing Odoo modules (XML).",
+        "tags": ["SCRUM", "ODOO", "UI"]
       }
     ]
   },
@@ -83,19 +83,19 @@
     "title": "_TIMELINE_SEQUENCING",
     "entries": [
       {
-        "period": "2021 - PRESENT",
-        "role": "SENIOR FRONTEND ARCHITECT",
-        "body": "Leading interface engineering for global data management platforms."
+        "period": "2025 – PRESENT",
+        "role": "WEB DEVELOPER · SOLWARE AGENCY",
+        "body": "Enterprise-focused web builds and integrations for clients; steady shipping with minimal operational drag."
       },
       {
-        "period": "2018 - 2021",
-        "role": "SYSTEMS DEVELOPER",
-        "body": "Building internal toolings and module libraries for enterprise systems."
+        "period": "2024 – 2025",
+        "role": "PROFESSIONAL INTERNSHIP · LOCATEL",
+        "body": "Internal tooling for querying files and operational data; project finished and actively used by the business."
       },
       {
-        "period": "2014 - 2018",
-        "role": "COMP_SCI_DEGREE",
-        "body": "Foundational logic and algorithm engineering certification."
+        "period": "2021 – 2024",
+        "role": "TECHNOLOGY CENTER ASSISTANT · UNIVERSIDAD NUEVA ESPARTA",
+        "body": "Day-to-day campus IT: workstations, connectivity, and support for well over one hundred faculty and staff users."
       }
     ]
   },
