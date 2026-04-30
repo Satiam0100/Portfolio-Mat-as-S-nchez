@@ -6,10 +6,8 @@ const isProd = process.env.NODE_ENV === "production";
 /**
  * Cabeceras HTTP de seguridad (OWASP / hardening típico en Next.js).
  *
- * CORS no aplica al HTML del portfolio (mismo origen). Solo sería relevante
- * en Route Handlers (`app/api/...`) llamados desde otro dominio; en ese caso
- * conviene `Access-Control-Allow-Origin` restrictivo (un solo origen), nunca `*`
- * con credenciales.
+ * CORS en rutas `/api`: ver `src/middleware.ts` y `src/lib/cors.ts` (whitelist +
+ * mismo origen). El HTML sirve igual de origen; no uses `*` con credenciales.
  */
 const securityHeaders: { key: string; value: string }[] = [
   { key: "X-DNS-Prefetch-Control", value: "on" },
