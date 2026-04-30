@@ -9,9 +9,48 @@ import {
   SMOOTH_SCROLL_START,
   isNavSectionId,
 } from "@/lib/nav-sections";
+import { useDarkMode } from "@/hooks/useDarkMode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageModal } from "./LanguageModal";
+import { ThemeModal } from "./ThemeModal";
+
+const themeIconStroke = 1.5;
+
+function ThemeSunIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={themeIconStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+  );
+}
+
+function ThemeMoonIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={themeIconStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  );
+}
 
 /** Misma capa visual que el botón `_EXECUTE_PROJECTS` del hero. */
 const activeLayerClass =
@@ -45,9 +84,11 @@ function readSectionFromHash(): NavSectionId {
 
 export function SiteNav() {
   const { t, i18n } = useTranslation();
+  const { isDark, setIsDark } = useDarkMode();
   const [active, setActive] = useState<NavSectionId>("hero");
   const [menuOpen, setMenuOpen] = useState(false);
   const [langModalOpen, setLangModalOpen] = useState(false);
+  const [themeModalOpen, setThemeModalOpen] = useState(false);
   const smoothScrollingRef = useRef(false);
   const scrollTickingRef = useRef(false);
 
@@ -133,7 +174,7 @@ export function SiteNav() {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 flex h-16 w-full min-w-0 items-center justify-between gap-2 border-b border-[#494847]/15 bg-[#050505]/80 px-3 backdrop-blur-xl sm:gap-4 sm:px-6">
+      <nav className="fixed top-0 z-50 flex h-16 w-full min-w-0 items-center justify-between gap-2 border-b border-[#050505] bg-[#494847]/90 px-3 backdrop-blur-xl sm:gap-4 sm:px-6">
         <div className="min-w-0 shrink font-headline text-base font-black tracking-tighter text-[#00FFC2] sm:text-lg md:text-xl">
           <span className="block truncate">ARCHITECT_OS</span>
         </div>
@@ -167,7 +208,7 @@ export function SiteNav() {
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded border border-white/10 text-[#00FFC2] transition-colors hover:bg-white/5 md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded border border-white/15 text-[#00FFC2] transition-colors hover:bg-white/5 md:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav-menu"
             aria-label={
@@ -189,7 +230,22 @@ export function SiteNav() {
           </button>
           <button
             type="button"
-            className="border border-white/10 px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00FFC2] transition-colors hover:bg-white/5 sm:px-3 sm:text-xs"
+            className="flex h-10 w-10 items-center justify-center rounded border border-white/15 text-[#00FFC2] transition-colors hover:bg-white/5"
+            aria-expanded={themeModalOpen}
+            aria-haspopup="dialog"
+            aria-controls="theme-modal"
+            aria-label={isDark ? t("nav.ariaThemeLight") : t("nav.ariaThemeDark")}
+            onClick={() => setThemeModalOpen(true)}
+          >
+            {isDark ? (
+              <ThemeSunIcon className="h-[18px] w-[18px]" />
+            ) : (
+              <ThemeMoonIcon className="h-[18px] w-[18px]" />
+            )}
+          </button>
+          <button
+            type="button"
+            className="border border-white/15 px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00FFC2] transition-colors hover:bg-white/5 sm:px-3 sm:text-xs"
             aria-expanded={langModalOpen}
             aria-haspopup="dialog"
             aria-controls="language-modal"
@@ -199,7 +255,7 @@ export function SiteNav() {
           </button>
           <button
             type="button"
-            className="bg-[#00FFC2] px-2 py-2 font-headline text-[10px] font-bold uppercase text-[#00654b] transition-all hover:bg-[#00edb4] sm:px-4 sm:text-xs"
+            className="bg-[#00FFC2] px-2 py-2 font-headline text-[10px] font-bold text-black uppercase transition-all hover:bg-[#00e6b3] sm:px-4 sm:text-xs"
           >
             {t("nav.connect")}
           </button>
@@ -210,9 +266,15 @@ export function SiteNav() {
         open={langModalOpen}
         onClose={() => setLangModalOpen(false)}
       />
+      <ThemeModal
+        open={themeModalOpen}
+        isDark={isDark}
+        onClose={() => setThemeModalOpen(false)}
+        onSetDark={setIsDark}
+      />
 
       <div
-        className={`fixed inset-x-0 top-16 z-[60] max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-[#494847]/15 bg-[#050505]/98 backdrop-blur-xl md:hidden ${
+        className={`fixed inset-x-0 top-16 z-[60] max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-[#494847]/15 bg-[#494847]/98 backdrop-blur-xl md:hidden ${
           menuOpen ? "flex" : "hidden"
         }`}
         id="mobile-nav-menu"

@@ -43,9 +43,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("dark", "antialiased", spaceGrotesk.variable, beVietnam.variable, "font-sans", inter.variable)}
+      suppressHydrationWarning
+      className={cn(
+        "antialiased",
+        spaceGrotesk.variable,
+        beVietnam.variable,
+        "font-sans",
+        inter.variable,
+      )}
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var r=document.documentElement;try{var t=localStorage.getItem('theme'),dark;if(t==='dark')dark=true;else if(t==='light')dark=false;else dark=window.matchMedia('(prefers-color-scheme: dark)').matches;r.classList.toggle('dark',dark);}catch(e){r.classList.add('dark');}})();`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -53,7 +65,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden min-h-screen">
+      <body className="min-h-screen overflow-x-hidden bg-white font-body text-neutral-950 selection:bg-primary-container selection:text-on-primary-container dark:bg-black dark:text-white">
         <Providers>
           <SmoothAnchorScroll />
           {children}

@@ -18,10 +18,10 @@ export function ProjectsSection() {
 
   return (
     <section
-      className="bg-black px-4 py-16 sm:px-8 sm:py-20 md:px-20 md:py-24"
+      className="bg-neutral-50 px-4 py-16 dark:bg-black sm:px-8 sm:py-20 md:px-20 md:py-24"
       id="work"
     >
-      <h2 className="font-headline mb-10 text-3xl font-black uppercase tracking-tighter sm:mb-16 sm:text-4xl md:text-5xl">
+      <h2 className="font-headline mb-10 text-3xl font-black uppercase tracking-tighter text-neutral-950 dark:text-white sm:mb-16 sm:text-4xl md:text-5xl">
         {t("projects.title")}
       </h2>
       <div className="grid min-w-0 grid-cols-12 gap-4 sm:gap-6">
@@ -33,17 +33,17 @@ export function ProjectsSection() {
             className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 66vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-50 via-neutral-50/40 to-transparent dark:from-black dark:via-black/40" />
           <div className="absolute bottom-0 w-full min-w-0 p-4 sm:p-6 md:p-10">
             <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-4">
               <span className="bg-primary px-3 py-1 text-[10px] font-bold tracking-widest text-on-primary uppercase">
                 {t("projects.featured.badge")}
               </span>
-              <span className="font-mono text-[10px] text-white/40">
+              <span className="font-mono text-[10px] text-neutral-950/45 dark:text-white/40">
                 {t("projects.featured.hash")}
               </span>
             </div>
-            <h3 className="font-headline mb-3 break-words text-2xl font-bold sm:mb-4 sm:text-3xl md:text-4xl">
+            <h3 className="font-headline mb-3 break-words text-2xl font-bold text-neutral-950 dark:text-white sm:mb-4 sm:text-3xl md:text-4xl">
               {t("projects.featured.title")}
             </h3>
             <p className="mb-4 max-w-xl text-xs leading-relaxed text-on-surface-variant sm:mb-6 sm:text-sm">
@@ -58,7 +58,7 @@ export function ProjectsSection() {
               </button>
               <button
                 type="button"
-                className="w-full border border-white/20 px-6 py-2 text-xs font-bold text-white uppercase transition-all hover:bg-white/10 sm:w-auto"
+                className="w-full border border-neutral-950/25 px-6 py-2 text-xs font-bold text-neutral-950 uppercase transition-all hover:bg-neutral-950/10 dark:border-white/20 dark:text-white dark:hover:bg-white/10 sm:w-auto"
               >
                 {t("projects.featured.repo")}
               </button>
@@ -74,9 +74,9 @@ export function ProjectsSection() {
             className="object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 1024px) 100vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-50 to-transparent dark:from-black" />
           <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
-            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold text-neutral-950 dark:text-white sm:text-2xl">
               {t("projects.crypto.title")}
             </h3>
             <p className="mb-6 text-xs text-on-surface-variant">
@@ -96,9 +96,9 @@ export function ProjectsSection() {
             className="object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-50 to-transparent dark:from-black" />
           <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
-            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold text-neutral-950 dark:text-white sm:text-2xl">
               {t("projects.void.title")}
             </h3>
             <p className="mb-6 text-xs text-on-surface-variant">
@@ -118,9 +118,9 @@ export function ProjectsSection() {
             className="object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 66vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-neutral-50 to-transparent dark:from-black" />
           <div className="absolute bottom-0 min-w-0 p-4 sm:p-8">
-            <h3 className="font-headline mb-2 break-words text-xl font-bold sm:text-2xl">
+            <h3 className="font-headline mb-2 break-words text-xl font-bold text-neutral-950 dark:text-white sm:text-2xl">
               {t("projects.sat.title")}
             </h3>
             <p className="mb-6 text-xs text-on-surface-variant">

@@ -48,7 +48,7 @@ export function TechSection() {
     >
       <div className="mb-10 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
-          <h2 className="font-headline mb-4 text-3xl font-black uppercase tracking-tighter sm:text-4xl md:text-5xl">
+          <h2 className="font-headline mb-4 text-3xl font-black uppercase tracking-tighter text-neutral-950 dark:text-white sm:text-4xl md:text-5xl">
             {t("tech.title")}
           </h2>
           <p className="font-body max-w-md text-sm uppercase tracking-widest text-on-surface-variant">
@@ -80,7 +80,7 @@ export function TechSection() {
             >
               {c.icon}
             </span>
-            <h3 className="font-headline mb-2 text-xl font-bold text-white">
+            <h3 className="font-headline mb-2 text-xl font-bold text-neutral-950 dark:text-white">
               {c.title}
             </h3>
             <p className="text-xs leading-relaxed text-on-surface-variant">

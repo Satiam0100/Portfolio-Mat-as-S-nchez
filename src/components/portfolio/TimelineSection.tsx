@@ -16,7 +16,7 @@ export function TimelineSection() {
 
   return (
     <section className="px-4 py-16 sm:px-8 sm:py-20 md:px-20 md:py-24">
-      <h2 className="font-headline mb-10 text-center text-3xl font-black uppercase tracking-tighter sm:mb-16 sm:text-4xl md:text-5xl">
+      <h2 className="font-headline mb-10 text-center text-3xl font-black uppercase tracking-tighter text-neutral-950 dark:text-white sm:mb-16 sm:text-4xl md:text-5xl">
         {t("timeline.title")}
       </h2>
       <div className="relative mx-auto max-w-4xl min-w-0">
@@ -28,7 +28,7 @@ export function TimelineSection() {
               <span className="mb-2 block text-xs font-bold tracking-widest text-primary">
                 {e0?.period}
               </span>
-              <h4 className="font-headline mb-2 text-lg font-bold text-white">
+              <h4 className="font-headline mb-2 text-lg font-bold text-neutral-950 dark:text-white">
                 {e0?.role}
               </h4>
               <p className="text-xs text-on-surface-variant">{e0?.body}</p>
@@ -44,7 +44,7 @@ export function TimelineSection() {
               <span className="mb-2 block text-xs font-bold tracking-widest text-secondary">
                 {e1?.period}
               </span>
-              <h4 className="font-headline mb-2 text-lg font-bold text-white">
+              <h4 className="font-headline mb-2 text-lg font-bold text-neutral-950 dark:text-white">
                 {e1?.role}
               </h4>
               <p className="text-xs text-on-surface-variant">{e1?.body}</p>
@@ -60,7 +60,7 @@ export function TimelineSection() {
               <span className="mb-2 block text-xs font-bold tracking-widest text-tertiary">
                 {e2?.period}
               </span>
-              <h4 className="font-headline mb-2 text-lg font-bold text-white">
+              <h4 className="font-headline mb-2 text-lg font-bold text-neutral-950 dark:text-white">
                 {e2?.role}
               </h4>
               <p className="text-xs text-on-surface-variant">{e2?.body}</p>

@@ -7,7 +7,9 @@
     "connect": "_CONECTAR",
     "ariaMenuOpen": "Cerrar menú",
     "ariaMenuClosed": "Abrir menú",
-    "ariaMenuBackdrop": "Cerrar menú"
+    "ariaMenuBackdrop": "Cerrar menú",
+    "ariaThemeLight": "Abrir modal de tema para activar modo claro",
+    "ariaThemeDark": "Abrir modal de tema para activar modo oscuro"
   },
   "languageModal": {
     "title": "Idioma · Language",
@@ -17,13 +19,18 @@
     "close": "_CERRAR",
     "closeBackdrop": "Cerrar"
   },
+  "themeModal": {
+    "title": "Modo de tema",
+    "subtitle": "Elegí la apariencia de la interfaz",
+    "light": "_CLARO",
+    "dark": "_OSCURO",
+    "close": "_CERRAR",
+    "closeBackdrop": "Cerrar"
+  },
   "hero": {
     "badge": "SISTEMA_INICIALIZADO // ARCHITECT_V2.0",
-    "headingLine1": "DEV_UNIT",
-    "headingLine2": "OS_01",
     "headingNameLine1": "Matias Sanchez",
     "headingRole": "Software Developer",
-    "headingDegree": "Lic. en Computación",
     "terminalPrompt": "guest@architect:~$",
     "terminalBuild": "build --target full-stack",
     "terminalLog1Body": "Compilando interfaces de alta fidelidad...",

@@ -7,7 +7,9 @@
     "connect": "_CONNECT",
     "ariaMenuOpen": "Close menu",
     "ariaMenuClosed": "Open menu",
-    "ariaMenuBackdrop": "Close menu"
+    "ariaMenuBackdrop": "Close menu",
+    "ariaThemeLight": "Open theme modal to switch to light mode",
+    "ariaThemeDark": "Open theme modal to switch to dark mode"
   },
   "languageModal": {
     "title": "Language · Idioma",
@@ -17,13 +19,18 @@
     "close": "_CLOSE",
     "closeBackdrop": "Close"
   },
+  "themeModal": {
+    "title": "Theme Mode",
+    "subtitle": "Choose interface appearance",
+    "light": "_LIGHT",
+    "dark": "_DARK",
+    "close": "_CLOSE",
+    "closeBackdrop": "Close"
+  },
   "hero": {
     "badge": "SYSTEM_INITIALIZED // ARCHITECT_V2.0",
-    "headingLine1": "DEV_UNIT",
-    "headingLine2": "OS_01",
     "headingNameLine1": "Matias Sanchez",
     "headingRole": "Software Developer",
-    "headingDegree": "B.Sc. Computer Science",
     "terminalPrompt": "guest@architect:~$",
     "terminalBuild": "build --target full-stack",
     "terminalLog1Body": "Compiling high-fidelity interfaces...",

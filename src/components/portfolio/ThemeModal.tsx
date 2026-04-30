@@ -3,16 +3,22 @@
 import { useEffect, useId, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-type LanguageModalProps = {
+type ThemeModalProps = {
   open: boolean;
+  isDark: boolean;
   onClose: () => void;
+  onSetDark: (next: boolean) => void;
 };
 
-export function LanguageModal({ open, onClose }: LanguageModalProps) {
-  const { t, i18n } = useTranslation();
+export function ThemeModal({
+  open,
+  isDark,
+  onClose,
+  onSetDark,
+}: ThemeModalProps) {
+  const { t } = useTranslation();
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
-  const active = i18n.language.startsWith("es") ? "es" : "en";
 
   useEffect(() => {
     if (!open) return;
@@ -47,11 +53,11 @@ export function LanguageModal({ open, onClose }: LanguageModalProps) {
       <button
         type="button"
         className="absolute inset-0 bg-neutral-950/40 backdrop-blur-sm dark:bg-black/70"
-        aria-label={t("languageModal.closeBackdrop")}
+        aria-label={t("themeModal.closeBackdrop")}
         onClick={onClose}
       />
       <div
-        id="language-modal"
+        id="theme-modal"
         ref={panelRef}
         role="dialog"
         aria-modal="true"
@@ -67,40 +73,40 @@ export function LanguageModal({ open, onClose }: LanguageModalProps) {
           id={titleId}
           className="font-headline mb-2 text-center text-lg font-black tracking-tighter text-neutral-950 uppercase dark:text-white sm:text-xl"
         >
-          {t("languageModal.title")}
+          {t("themeModal.title")}
         </h2>
         <p className="mb-6 text-center text-[10px] tracking-widest text-on-surface-variant uppercase sm:text-xs">
-          {t("languageModal.subtitle")}
+          {t("themeModal.subtitle")}
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <button
             type="button"
             className={
-              active === "en"
+              !isDark
                 ? "font-headline flex-1 border-2 border-primary bg-primary/10 px-4 py-4 text-xs font-bold tracking-widest text-primary uppercase transition-all"
                 : "font-headline flex-1 border border-neutral-950/25 px-4 py-4 text-xs font-bold tracking-widest text-neutral-950/80 uppercase transition-all hover:border-primary/40 hover:bg-neutral-950/[0.06] dark:border-white/20 dark:text-white/80 dark:hover:bg-white/5"
             }
             onClick={() => {
-              void i18n.changeLanguage("en");
+              onSetDark(false);
               onClose();
             }}
           >
-            {t("languageModal.english")}
+            {t("themeModal.light")}
           </button>
           <button
             type="button"
             className={
-              active === "es"
+              isDark
                 ? "font-headline flex-1 border-2 border-primary bg-primary/10 px-4 py-4 text-xs font-bold tracking-widest text-primary uppercase transition-all"
                 : "font-headline flex-1 border border-neutral-950/25 px-4 py-4 text-xs font-bold tracking-widest text-neutral-950/80 uppercase transition-all hover:border-primary/40 hover:bg-neutral-950/[0.06] dark:border-white/20 dark:text-white/80 dark:hover:bg-white/5"
             }
             onClick={() => {
-              void i18n.changeLanguage("es");
+              onSetDark(true);
               onClose();
             }}
           >
-            {t("languageModal.spanish")}
+            {t("themeModal.dark")}
           </button>
         </div>
 
@@ -109,7 +115,7 @@ export function LanguageModal({ open, onClose }: LanguageModalProps) {
           className="font-headline mt-6 w-full border border-neutral-950/15 py-2 text-[10px] font-bold tracking-widest text-neutral-950/55 uppercase transition-colors hover:bg-neutral-950/[0.06] hover:text-neutral-950/85 dark:border-white/10 dark:text-white/50 dark:hover:bg-white/5 dark:hover:text-white/80"
           onClick={onClose}
         >
-          {t("languageModal.close")}
+          {t("themeModal.close")}
         </button>
       </div>
     </div>

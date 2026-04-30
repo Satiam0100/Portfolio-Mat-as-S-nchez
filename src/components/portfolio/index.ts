@@ -6,4 +6,5 @@ export { SideNav } from "./SideNav";
 export { SiteFooter } from "./SiteFooter";
 export { SiteNav } from "./SiteNav";
 export { TechSection } from "./TechSection";
+export { ThemeModal } from "./ThemeModal";
 export { TimelineSection } from "./TimelineSection";

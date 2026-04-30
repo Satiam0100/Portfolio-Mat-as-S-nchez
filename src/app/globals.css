@@ -196,7 +196,7 @@ html {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-neutral-950 dark:bg-black dark:text-white;
   }
   html {
     @apply font-sans;

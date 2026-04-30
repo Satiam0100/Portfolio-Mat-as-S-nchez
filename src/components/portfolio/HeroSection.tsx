@@ -24,16 +24,16 @@ export function HeroSection() {
         <div className="flex w-full min-w-0 flex-col items-stretch gap-8 md:flex-row md:items-center">
           <div className="min-w-0 border-l-4 border-primary bg-surface-container-high p-4 sm:p-6">
             <p className="font-mono max-w-lg text-xs leading-relaxed break-words text-primary-dim sm:text-sm md:text-base">
-              <span className="text-white/40">{t("hero.terminalPrompt")}</span>{" "}
+              <span className="text-neutral-950/40 dark:text-white/40">{t("hero.terminalPrompt")}</span>{" "}
               {t("hero.terminalBuild")}
               <br />
-              <span className="text-white/40">[LOG]</span>{" "}
+              <span className="text-neutral-950/40 dark:text-white/40">[LOG]</span>{" "}
               {t("hero.terminalLog1Body")}
               <br />
-              <span className="text-white/40">[LOG]</span>{" "}
+              <span className="text-neutral-950/40 dark:text-white/40">[LOG]</span>{" "}
               {t("hero.terminalLog2Body")}
               <br />
-              <span className="text-white">{t("hero.terminalStatus")}</span>
+              <span className="text-neutral-950 dark:text-white">{t("hero.terminalStatus")}</span>
               <span className="animate-pulse">_</span>
             </p>
           </div>
